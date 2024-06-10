@@ -2,67 +2,56 @@
 <html>
 <head>
     <title>Payment Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
         }
         .container {
-            background-color: white;
+            width: 50%;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .container img {
-            width: 80px;
-            margin-bottom: 20px;
+            display: block;
+            margin: 0 auto;
+            width: 100px;
         }
         .container h2 {
-            margin-bottom: 20px;
-            font-weight: 500;
+            text-align: center;
         }
         .form-group {
             margin-bottom: 15px;
-            text-align: left;
         }
         .form-group label {
             display: block;
-            font-size: 14px;
             margin-bottom: 5px;
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
+            padding: 8px;
+            box-sizing: border-box;
         }
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #4285f4;
+            background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
         }
         .form-group button:hover {
-            background-color: #357ae8;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://i.imgur.com/rPt55K9.png" alt="Business Logo">
+        <img src="https://drive.google.com/uc?export=view&id=1az0mnb_p1D5ea08xO5vmgsdewNYqp-cB" alt="Business Logo">
         <h2>Payment Form</h2>
         <form id="paymentForm">
             <div class="form-group">
@@ -76,10 +65,6 @@
             <div class="form-group">
                 <label for="no_hp">Nomor HP:</label>
                 <input type="tel" id="no_hp" name="no_hp" required>
-            </div>
-            <div class="form-group">
-                <label for="kota">Kota:</label>
-                <input type="text" id="kota" name="kota" required>
             </div>
             <div class="form-group">
                 <label for="payment_method">Metode Pembayaran:</label>
@@ -100,7 +85,7 @@
             const form = document.getElementById('paymentForm');
             const data = new FormData(form);
 
-            fetch('https://script.google.com/macros/s/AKfycbwAhnSEspCe1x-YJ886XtdXkQFZUcSDZsLTkjSL6-ve2BG8wVANEGzOOgdy-Cj4e7jf/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbyJmm2RjwDoo1ESkvXhPmMAvSgf5Jo4KHRzOrn1NednXlnRkk7ZzAZG88ovHR5H9Q5w6g/exec', {
                 method: 'POST',
                 body: new URLSearchParams(data),
             })
@@ -109,7 +94,6 @@
                 if (result.result === 'success') {
                     alert('Form submitted successfully');
                     form.reset();
-                    window.location.href = 'https://wa.me/6282319588080?text=Pembayaran%20telah%20dilakukan!';
                 } else {
                     alert('Error submitting form');
                 }
